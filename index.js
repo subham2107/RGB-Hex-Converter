@@ -7,10 +7,10 @@ console.log(`You selected ${userResponse}`);
 function utilrgbToHex(color)
 {
    let hex;
-   if (color<=9)
-   hex='0'+color;
+   if (color <= 9)
+     hex = '0'+color;
    else
-   hex= color.toString(16);
+     hex = color.toString(16);
    
    return hex;
 }
@@ -32,22 +32,25 @@ function hexToRgb(hex)//"#32a852" → {red: 50, blue: 168, green: 82}
 switch(userResponse)
 {
    case 1:
-   console.log('Please enter the RGB (red,green,blue one by one) to be converted to Hex\n');
+     console.log('Please enter the RGB (red,green,blue one by one) to be converted to Hex\n');
 
-   const red = parseInt(readLineSync.question('Please enter value (0 to 255) to represent red \n'));
+     const red = parseInt(readLineSync.question('Please enter value (0 to 255) to represent red \n'));
   
-   const blue = parseInt(readLineSync.question('Please enter value (0 to 255) to represent blue \n'));
+     const blue = parseInt(readLineSync.question('Please enter value (0 to 255) to represent blue \n'));
   
-   const green = parseInt(readLineSync.question('Please enter value (0 to 255) to represent green \n'));
-
-   console.log(rgbToHex(red,blue,green));
-   break;
+     const green = parseInt(readLineSync.question('Please enter value (0 to 255) to represent green \n'));
+   
+     if((red>=0 && red <=255) && (red>=0 && red <=255) && (red>=0 && red <=255))
+         console.log(rgbToHex(red,blue,green));
+     else
+         console.log('Please enter correct valid values for red,blue,green !!\n');
+     break;
 
    case 2:
-   const hex = readLineSync.question('Please enter the hex to be converted to RGB\n');
-   console.log(hexToRgb(hex));
-   break;
+     const hex = readLineSync.question('Please enter the hex to be converted to RGB\n');
+     console.log(hexToRgb(hex));
+     break;
 
    default:
-   console.log('Invalid option');
+     console.log('Invalid option');
 }
