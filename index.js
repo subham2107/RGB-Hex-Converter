@@ -11,6 +11,8 @@ function utilrgbToHex(color)
      hex = '0'+color;
    else
      hex = color.toString(16);
+     if(hex.length===1)
+     hex='0'+hex; 
    
    return hex;
 }
